@@ -4,8 +4,16 @@
 (function() {
     'use strict';
 
+    // Ensure GTM is initialized
+    window.dataLayer = window.dataLayer || [];
+    
     // Initialize GA4 events on page load
     document.addEventListener('DOMContentLoaded', function() {
+        // Initialize GTM if not already loaded
+        if (typeof gtag === 'undefined') {
+            console.log('GTM container initializing...');
+        }
+        
         // Track page view
         trackPageView();
         
@@ -22,20 +30,41 @@
         trackLinkClicks();
     });
 
+    // Also track page view on window load to ensure GTM is ready
+    window.addEventListener('load', function() {
+        console.log('Page fully loaded, GAtagger ready');
+    });
+
     /**
      * Track page view event
      */
     function trackPageView() {
+        // Ensure GTM is initialized
+        if (typeof dataLayer === 'undefined') {
+            window.dataLayer = [];
+        }
+        
         const pageData = {
             event_category: 'page_view',
             event_label: document.title,
             page_path: window.location.pathname,
             page_title: document.title,
-            page_location: window.location.href
+            page_location: window.location.href,
+            session_id: localStorage.getItem('session_id') || generateSessionId()
         };
         
         trackCustomEvent('page_view', pageData);
         console.log('Page view tracked:', pageData);
+    }
+    
+    /**
+     * Generate a unique session ID if not exists
+     */
+    function generateSessionId() {
+        const sessionId = 'session_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+        localStorage.setItem('session_id', sessionId);
+        localStorage.setItem('session_start', new Date().toISOString());
+        return sessionId;
     }
 
     /**

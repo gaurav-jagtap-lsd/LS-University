@@ -68,8 +68,8 @@ function setUserProperty(property, value) {
  */
 function getSessionInfo() {
     return {
-        session_id: sessionStorage.getItem('session_id') || generateSessionId(),
-        session_start: sessionStorage.getItem('session_start') || new Date().toISOString()
+        session_id: localStorage.getItem('session_id') || generateSessionId(),
+        session_start: localStorage.getItem('session_start') || new Date().toISOString()
     };
 }
 
@@ -79,8 +79,8 @@ function getSessionInfo() {
  */
 function generateSessionId() {
     const sessionId = 'session_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
-    sessionStorage.setItem('session_id', sessionId);
-    sessionStorage.setItem('session_start', new Date().toISOString());
+    localStorage.setItem('session_id', sessionId);
+    localStorage.setItem('session_start', new Date().toISOString());
     return sessionId;
 }
 

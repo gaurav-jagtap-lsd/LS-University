@@ -22,7 +22,10 @@
      * Scrape the page structure and components
      */
     function scrapePageStructure() {
+        const sessionId = localStorage.getItem('session_id') || 'unknown';
+        
         const pageStructure = {
+            session_id: sessionId,
             total_headings: document.querySelectorAll('h1, h2, h3, h4, h5, h6').length,
             total_paragraphs: document.querySelectorAll('p').length,
             total_buttons: document.querySelectorAll('button, .btn').length,

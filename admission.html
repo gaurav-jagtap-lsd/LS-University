@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission - LS UNIVERSITY</title>
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NF32QWM7');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NF32QWM7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">LS UNIVERSITY</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="programs.html" class="nav-link">Programs</a></li>
+                    <li><a href="admission.html" class="nav-link active cta-link">Apply Now</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="admission-header">
+            <h1>Admission Application</h1>
+            <p>Join LS UNIVERSITY and shape your future</p>
+        </section>
+
+        <section class="admission-form-container">
+            <div class="form-wrapper">
+                <h2>Application Form</h2>
+                <form id="admission-form" class="admission-form">
+                    <div class="form-section">
+                        <h3>Personal Information</h3>
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required data-field-type="personal">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required data-field-type="personal">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required data-field-type="contact">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required data-field-type="contact">
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Date of Birth *</label>
+                            <input type="date" id="dob" name="dob" required data-field-type="personal">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Educational Background</h3>
+                        <div class="form-group">
+                            <label for="education">Highest Level of Education *</label>
+                            <select id="education" name="education" required data-field-type="education">
+                                <option value="">-- Select --</option>
+                                <option value="high_school">High School</option>
+                                <option value="bachelors">Bachelor's Degree</option>
+                                <option value="masters">Master's Degree</option>
+                                <option value="phd">PhD</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="gpa">GPA / Percentage *</label>
+                            <input type="text" id="gpa" name="gpa" placeholder="e.g., 3.8" required data-field-type="education">
+                        </div>
+                        <div class="form-group">
+                            <label for="program">Desired Program *</label>
+                            <select id="program" name="program" required data-field-type="program">
+                                <option value="">-- Select Program --</option>
+                                <option value="computer_science">Computer Science</option>
+                                <option value="business">Business Administration</option>
+                                <option value="engineering">Engineering</option>
+                                <option value="medicine">Medicine</option>
+                                <option value="law">Law</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Additional Information</h3>
+                        <div class="form-group">
+                            <label for="country">Country *</label>
+                            <input type="text" id="country" name="country" required data-field-type="location">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City *</label>
+                            <input type="text" id="city" name="city" required data-field-type="location">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Tell us about yourself</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Share your aspirations and goals..." data-field-type="essay"></textarea>
+                        </div>
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to the terms and conditions *</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large" id="submit-btn">Submit Application</button>
+                </form>
+                <div id="form-success-message" class="success-message" style="display: none;">
+                    <h3>✓ Application Submitted Successfully!</h3>
+                    <p>Thank you for applying to LS UNIVERSITY. We will review your application and contact you soon.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 LS UNIVERSITY. All rights reserved.</p>
+    </footer>
+
+    <!-- GA4 & Custom Events Scripts -->
+    <script src="js/gtm-helper.js"></script>
+    <script src="js/ga4-events.js"></script>
+    <script src="js/form-tracking.js"></script>
+    <script src="js/dom-scraper.js"></script>
+</body>
+</html>

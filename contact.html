@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - LS UNIVERSITY</title>
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NF32QWM7');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NF32QWM7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">LS UNIVERSITY</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="programs.html" class="nav-link">Programs</a></li>
+                    <li><a href="admission.html" class="nav-link cta-link">Apply Now</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-header">
+            <h1>Contact Us</h1>
+            <p>Get in touch with LS UNIVERSITY</p>
+        </section>
+
+        <section class="contact-section">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <div class="info-item" id="info-address">
+                        <h3>Address</h3>
+                        <p>LS UNIVERSITY Campus<br>123 Education Boulevard<br>Innovation City, IC 12345</p>
+                    </div>
+                    <div class="info-item" id="info-phone">
+                        <h3>Phone</h3>
+                        <p>Admissions: +1 (555) 123-4567<br>General: +1 (555) 987-6543</p>
+                    </div>
+                    <div class="info-item" id="info-email">
+                        <h3>Email</h3>
+                        <p>admissions@lsuniversity.edu<br>info@lsuniversity.edu</p>
+                    </div>
+                    <div class="info-item" id="info-hours">
+                        <h3>Office Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 5:00 PM<br>Saturday: 10:00 AM - 2:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h2>Send us a Message</h2>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name">Name *</label>
+                            <input type="text" id="contact-name" name="name" required data-field-type="personal">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email *</label>
+                            <input type="email" id="contact-email" name="email" required data-field-type="contact">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject *</label>
+                            <select id="contact-subject" name="subject" required data-field-type="contact">
+                                <option value="">-- Select Subject --</option>
+                                <option value="admission">Admission Inquiry</option>
+                                <option value="program">Program Information</option>
+                                <option value="scholarship">Scholarship</option>
+                                <option value="general">General Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message *</label>
+                            <textarea id="contact-message" name="message" rows="5" required data-field-type="message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="contact-submit-btn">Send Message</button>
+                    </form>
+                    <div id="contact-success-message" class="success-message" style="display: none;">
+                        <h3>✓ Message Sent Successfully!</h3>
+                        <p>Thank you for contacting us. We will get back to you soon.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 LS UNIVERSITY. All rights reserved.</p>
+    </footer>
+
+    <!-- GA4 & Custom Events Scripts -->
+    <script src="js/gtm-helper.js"></script>
+    <script src="js/ga4-events.js"></script>
+    <script src="js/form-tracking.js"></script>
+    <script src="js/dom-scraper.js"></script>
+</body>
+</html>

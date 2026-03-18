@@ -1,18 +1,6 @@
 // GTM Helper Functions
 // This file contains utility functions for working with Google Tag Manager
 
-// Initialize localStorage session immediately on script load
-(function() {
-    if (!localStorage.getItem('session_id')) {
-        const sessionId = 'session_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
-        localStorage.setItem('session_id', sessionId);
-        localStorage.setItem('session_start', new Date().toISOString());
-        console.log('New session created:', sessionId);
-    } else {
-        console.log('Existing session restored:', localStorage.getItem('session_id'));
-    }
-})();
-
 /**
  * Push an event to the GTM Data Layer
  * @param {string} eventName - The name of the event

@@ -6,12 +6,28 @@
     <title>Programs - LS UNIVERSITY</title>
     <link rel="stylesheet" href="css/styles.css">
     
+    <!-- Initialize dataLayer FIRST before GTM -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        // Initialize session ID immediately
+        if (!localStorage.getItem('session_id')) {
+            const sessionId = 'session_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+            localStorage.setItem('session_id', sessionId);
+            localStorage.setItem('session_start', new Date().toISOString());
+            console.log('📊 New session created:', sessionId);
+        } else {
+            console.log('📊 Session restored:', localStorage.getItem('session_id'));
+        }
+        // Push initial event to dataLayer
+        dataLayer.push({
+            'gtm.start': new Date().getTime(),
+            'event': 'gtm.js',
+            'session_id': localStorage.getItem('session_id')
+        });
+    </script>
+    
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NF32QWM7');</script>
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-NF32QWM7"></script>
     <!-- End Google Tag Manager -->
 </head>
 <body>

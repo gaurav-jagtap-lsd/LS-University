@@ -76,6 +76,7 @@
         if (heroCTA) {
             heroCTA.addEventListener('click', function(e) {
                 trackCTAEvent('hero_cta', 'Start Your Journey', this);
+                window.location.href = 'admission.html';
             });
         }
 
@@ -84,6 +85,7 @@
         if (mainAdmissionBtn) {
             mainAdmissionBtn.addEventListener('click', function(e) {
                 trackCTAEvent('main_admission', 'Apply for Admission', this);
+                window.location.href = 'admission.html';
             });
         }
 
@@ -111,6 +113,9 @@
             btn.addEventListener('click', function(e) {
                 const programName = this.getAttribute('data-program');
                 trackCTAEvent('program_learn_more', 'Learn More - ' + programName, this);
+                // Store selected program and navigate
+                localStorage.setItem('selected_program', programName);
+                window.location.href = 'admission.html';
             });
         });
     }

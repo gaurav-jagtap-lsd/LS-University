@@ -7,19 +7,24 @@
  * @param {object} eventData - The data associated with the event
  */
 function pushGTMEvent(eventName, eventData = {}) {
-    if (window.dataLayer === undefined) {
-        window.dataLayer = [];
+    try {
+        if (window.dataLayer === undefined) {
+            window.dataLayer = [];
+            console.warn('⚠️ dataLayer was undefined, creating new one');
+        }
+        
+        const eventPayload = {
+            event: eventName,
+            timestamp: new Date().toISOString(),
+            url: window.location.href,
+            ...eventData
+        };
+        
+        window.dataLayer.push(eventPayload);
+        console.log('✅ Event pushed to GTM:', eventPayload);
+    } catch(error) {
+        console.error('❌ Error pushing event to GTM:', error);
     }
-    
-    const eventPayload = {
-        event: eventName,
-        timestamp: new Date().toISOString(),
-        url: window.location.href,
-        ...eventData
-    };
-    
-    window.dataLayer.push(eventPayload);
-    console.log('Event pushed to GTM:', eventPayload);
 }
 
 /**
@@ -90,11 +95,15 @@ function generateSessionId() {
  * @param {object} metadata - Event metadata
  */
 function trackCustomEvent(eventName, metadata = {}) {
-    const eventData = {
-        ...getPageInfo(),
-        ...getSessionInfo(),
-        ...metadata
-    };
-    
-    pushGTMEvent(eventName, eventData);
+    try {
+        const eventData = {
+            ...getPageInfo(),
+            ...getSessionInfo(),
+            ...metadata
+        };
+        
+        pushGTMEvent(eventName, eventData);
+    } catch(error) {
+        console.error('❌ Error tracking custom event:', error);
+    }
 }

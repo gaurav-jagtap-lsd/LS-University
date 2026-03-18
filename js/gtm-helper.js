@@ -1,5 +1,6 @@
 // GTM Helper Functions
 // This file contains utility functions for working with Google Tag Manager
+// Dependencies: session.js must be loaded first
 
 /**
  * Push an event to the GTM Data Layer
@@ -72,21 +73,19 @@ function setUserProperty(property, value) {
  * @returns {object} Session information
  */
 function getSessionInfo() {
+    // Use the session utility if available, otherwise fallback to localStorage
+    if (window.LS_SESSION) {
+        return {
+            session_id: window.LS_SESSION.id,
+            session_start: window.LS_SESSION.start
+        };
+    }
+    
+    // Fallback to localStorage directly
     return {
-        session_id: localStorage.getItem('session_id') || generateSessionId(),
-        session_start: localStorage.getItem('session_start') || new Date().toISOString()
+        session_id: localStorage.getItem('session_id') || 'unknown',
+        session_start: localStorage.getItem('session_start') || 'unknown'
     };
-}
-
-/**
- * Generate a unique session ID
- * @returns {string} Unique session ID
- */
-function generateSessionId() {
-    const sessionId = 'session_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
-    localStorage.setItem('session_id', sessionId);
-    localStorage.setItem('session_start', new Date().toISOString());
-    return sessionId;
 }
 
 /**

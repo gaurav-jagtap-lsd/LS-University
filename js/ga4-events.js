@@ -1,5 +1,6 @@
 // GA4 Custom Events
 // This file handles all GA4 events for LS University website
+// Dependencies: session.js, gtm-helper.js must be loaded first
 
 (function() {
     'use strict';
@@ -10,7 +11,9 @@
     window.dataLayer = window.dataLayer || [];
     
     // Log current state
-    console.log('📊 Session ID:', localStorage.getItem('session_id'));
+    if (window.LS_SESSION) {
+        console.log('📊 Session ID:', window.LS_SESSION.id);
+    }
     console.log('📊 dataLayer available:', window.dataLayer !== undefined);
     
     // Initialize GA4 events - use both DOMContentLoaded and try immediate execution
@@ -63,7 +66,9 @@
                 console.warn('⚠️ dataLayer not found, creating new one');
             }
             
-            const sessionId = localStorage.getItem('session_id') || generateSessionId();
+            // Get session info from utility
+            const sessionId = (window.LS_SESSION && window.LS_SESSION.id) || localStorage.getItem('session_id') || 'unknown';
+            
             const pageData = {
                 event_category: 'page_view',
                 event_label: document.title,
@@ -81,9 +86,12 @@
     }
     
     /**
-     * Generate a unique session ID if not exists
+     * Generate a unique session ID if session utility is not available
      */
     function generateSessionId() {
+        if (window.LS_SESSION) {
+            return window.LS_SESSION.id;
+        }
         const sessionId = 'session_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
         localStorage.setItem('session_id', sessionId);
         localStorage.setItem('session_start', new Date().toISOString());

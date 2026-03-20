@@ -408,6 +408,40 @@ h3 {
     border-bottom: none;
 }
 
+/* Embedded video layout */
+.video-container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+#youtube-player {
+    width: 100%;
+    height: min(72vh, 750px);
+    max-height: 80vh;
+    min-height: 460px;
+    border-radius: 14px;
+    border: 0;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 1024px) {
+    #youtube-player {
+        min-height: 380px;
+        height: min(55vh, 520px);
+    }
+}
+
+@media (max-width: 768px) {
+    #youtube-player {
+        min-height: 260px;
+        height: 45vh;
+    }
+}
+
 .info-item h3 {
     color: var(--primary-color);
     margin-bottom: 0.5rem;

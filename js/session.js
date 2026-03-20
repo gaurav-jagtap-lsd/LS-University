@@ -7,9 +7,6 @@
 (function() {
     'use strict';
 
-    // Initialize dataLayer if it doesn't exist
-    window.dataLayer = window.dataLayer || [];
-
     /**
      * Initialize or restore session
      */
@@ -28,14 +25,7 @@
             console.log('✅ Session restored:', sessionId);
         }
 
-        // Push session info to dataLayer
-        window.dataLayer.push({
-            event: 'session_initialized',
-            session_id: sessionId,
-            session_start: sessionStart,
-            page_title: document.title,
-            page_path: window.location.pathname
-        });
+        // Session initialization tracking is disabled (manual implementation only)
 
         return {
             id: sessionId,

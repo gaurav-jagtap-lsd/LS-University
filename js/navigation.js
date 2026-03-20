@@ -61,17 +61,10 @@
      */
     function navigateTo(page) {
         try {
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                event: 'page_navigation',
-                destination_page: page,
-                source_page: window.location.pathname
-            });
-
-            // Navigate after a short delay to allow GTM event processing
+            // No automatic tracking event is fired on navigation (user requested enter-from-scratch behavior)
             setTimeout(() => {
                 window.location.href = page;
-            }, 50);
+            }, 0);
         } catch(error) {
             console.error('❌ Error during navigation:', error);
             window.location.href = page;

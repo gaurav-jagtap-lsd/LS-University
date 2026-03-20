@@ -189,17 +189,7 @@
             const product = products.find(p => p.id === productId);
             if (!product) return;
 
-            // Track add to cart event
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                event: 'add_to_cart',
-                product_id: productId,
-                product_name: product.name,
-                product_price: product.price,
-                quantity: quantity,
-                cart_total_value: calculateCartTotal()
-            });
-
+            // No automatic tracking events during cart updates (user requested manual tracking only)
             // Check if product already in cart
             const existingItem = cart.find(item => item.id === productId);
             if (existingItem) {
@@ -230,16 +220,7 @@
             const item = cart.find(i => i.id === productId);
             if (!item) return;
 
-            // Track remove from cart event
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                event: 'remove_from_cart',
-                product_id: productId,
-                product_name: item.name,
-                product_price: item.price,
-                quantity: item.quantity
-            });
-
+            // No automatic tracking events during cart removal
             cart = cart.filter(item => item.id !== productId);
             localStorage.setItem('lsu_shopping_cart', JSON.stringify(cart));
             updateCart();
@@ -254,13 +235,7 @@
      */
     function clearCart() {
         try {
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                event: 'cart_cleared',
-                items_count: cart.length,
-                cart_total: calculateCartTotal()
-            });
-
+            // No automatic tracking events during cart clearing
             cart = [];
             localStorage.removeItem('lsu_shopping_cart');
             updateCart();
@@ -356,29 +331,8 @@
             // Generate order ID
             const orderId = 'ORD_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
 
-            // Track purchase event for GA4/GTM
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                event: 'purchase',
-                transaction_id: orderId,
-                value: total,
-                currency: 'USD',
-                tax: tax,
-                shipping: 0,
-                items: cart.map(function(item) {
-                    return {
-                        item_id: item.id,
-                        item_name: item.name,
-                        price: item.price,
-                        quantity: item.quantity,
-                        item_category: 'University Merchandise'
-                    };
-                }),
-                item_count: cart.length,
-                item_qty_total: cart.reduce((sum, item) => sum + item.quantity, 0)
-            });
-
-            console.log('✅ Purchase tracked:', orderId);
+            // No automatic purchase tracking event fired here.
+            console.log('✅ Purchase completed (no auto-tracking):', orderId);
 
             // Show success message
             alert(`🎉 Thank you for your purchase!\n\nOrder ID: ${orderId}\nTotal: $${total.toFixed(2)}\n\nShipping confirmation will be sent to your email.`);
@@ -399,23 +353,10 @@
      */
     function trackStorePageView() {
         try {
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                event: 'store_page_view',
-                page_title: document.title,
-                product_count: products.length,
-                products: products.map(function(p) {
-                    return {
-                        product_id: p.id,
-                        product_name: p.name,
-                        product_price: p.price
-                    };
-                })
-            });
-
-            console.log('✅ Store page view tracked');
+            // No automatic store page view tracking is performed in this project.
+            console.log('✅ Store page view processing skipped (manual tracking only)');
         } catch(error) {
-            console.error('❌ Error tracking store page view:', error);
+            console.error('❌ Error in store page view handling:', error);
         }
     }
 

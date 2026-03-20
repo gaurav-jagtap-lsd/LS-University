@@ -410,22 +410,36 @@ h3 {
 
 /* Embedded video layout */
 .video-container {
-    max-width: 1100px;
-    margin: 2rem auto;
+    max-width: 1200px;
+    margin: 3rem auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.5rem;
+    padding: 1rem;
 }
 
 #youtube-player {
-    width: 100%;
-    height: min(72vh, 750px);
-    max-height: 80vh;
-    min-height: 460px;
+    width: 100% !important;
+    max-width: 1200px;
+    min-width: 320px;
+    height: clamp(480px, 70vh, 840px);
     border-radius: 14px;
     border: 0;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 1100px) {
+    #youtube-player {
+        min-height: 420px;
+        height: clamp(400px, 62vh, 720px);
+    }
+}
+
+@media (max-width: 768px) {
+    #youtube-player {
+        min-height: 280px;
+        height: 52vh;
+    }
 }
 
 @media (max-width: 1024px) {

@@ -10,6 +10,7 @@
 
     document.addEventListener('DOMContentLoaded', function() {
         setupButtonHandlers();
+        setupFeatureCardHandlers();
     });
 
     /**
@@ -53,6 +54,24 @@
             console.log('✅ Button handlers setup complete');
         } catch(error) {
             console.error('❌ Error setting up button handlers:', error);
+        }
+    }
+
+    /**
+     * Setup click handlers for feature cards
+     */
+    function setupFeatureCardHandlers() {
+        try {
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach(function(card) {
+                card.addEventListener('click', function() {
+                    navigateTo('programs.html');
+                });
+            });
+
+            console.log('✅ Feature card handlers setup complete');
+        } catch(error) {
+            console.error('❌ Error setting up feature card handlers:', error);
         }
     }
 

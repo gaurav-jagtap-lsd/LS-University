@@ -1,0 +1,14 @@
+{
+  "name": "ls-university-form-crawler",
+  "version": "1.0.0",
+  "description": "Automated random visitor simulation and admission form submission crawler",
+  "main": "crawler.js",
+  "scripts": {
+    "crawl": "node crawler.js"
+  },
+  "author": "LS UNIVERSITY",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^21.4.0"
+  }
+}

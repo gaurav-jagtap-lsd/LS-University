@@ -49,6 +49,13 @@ header {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: #1c3da0;
 }
 
 .nav-menu {
@@ -125,11 +132,14 @@ h3 {
 .hero-content h1 {
     color: var(--white);
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .hero-content p {
     font-size: 1.25rem;
     margin-bottom: 2rem;
+    color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Buttons */
@@ -180,13 +190,19 @@ h3 {
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     cursor: pointer;
+    border-left: 4px solid var(--primary-color);
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    background-color: #f0f7ff;
+}
+
+.feature-card p {
+    color: var(--text-color);
 }
 
 .feature-card h3 {
@@ -204,9 +220,14 @@ h3 {
     margin: 3rem 0;
 }
 
+.cta-section h2 {
+    color: var(--white);
+}
+
 .cta-section p {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
+    color: var(--white);
 }
 
 /* Form Styles */

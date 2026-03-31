@@ -43,14 +43,6 @@
                 });
             });
 
-            // Store button - Navigate to Store
-            const storeBtn = document.getElementById('store-btn');
-            if (storeBtn) {
-                storeBtn.addEventListener('click', function() {
-                    navigateTo('store.html');
-                });
-            }
-
             console.log('✅ Button handlers setup complete');
         } catch(error) {
             console.error('❌ Error setting up button handlers:', error);

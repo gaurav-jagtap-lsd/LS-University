@@ -1,7 +1,9 @@
-﻿Product,Inventory,Sale Price,Cost Price
-Table,50,5000,3500
-Chair,100,2500,2000
-Round Chair,40,2500,1500
-Round Table,30,3000,2000
-2 Seater Table,25,2500,2000
-4 Seater Table,100,3000,1500
+﻿Product Name,Category,Price,Description,Image,Stock
+LS University T-Shirt,Apparel,25.99,Comfortable cotton t-shirt with university logo,assets/tshirt.jpg,50
+LS University Hoodie,Apparel,45.99,Warm hoodie perfect for campus life,assets/hoodie.jpg,30
+University Notebook,Stationery,8.99,High-quality notebook for taking notes,assets/notebook.jpg,100
+LS University Mug,Accessories,12.99,Ceramic mug with university emblem,assets/mug.jpg,75
+Graduation Cap Keychain,Accessories,5.99,Collectible keychain for graduates,assets/keychain.jpg,200
+Textbook Bundle,Books,89.99,Complete set of required textbooks,assets/books.jpg,20
+Lab Coat,Apparel,35.99,Professional lab coat for science students,assets/labcoat.jpg,15
+University Pen Set,Stationery,15.99,Set of 5 premium pens with university branding,assets/pens.jpg,80

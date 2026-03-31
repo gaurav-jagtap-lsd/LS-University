@@ -6,9 +6,10 @@ A modern, fully functional university website with comprehensive Google Analytic
 
 ### Core Website Features
 - **Responsive Design**: Mobile-friendly interface that works on all devices
-- **Multi-page Navigation**: Home, About, Programs, Admission, and Contact pages
+- **Multi-page Navigation**: Home, About, Programs, Store, Admission, and Contact pages
 - **Admission Form**: Comprehensive student application form with validation
 - **Contact Form**: Get in touch form for inquiries
+- **University Store**: Official merchandise and academic supplies store
 - **Dynamic Content**: Feature cards, program offerings, and statistics
 
 ### Analytics & Tracking Features
@@ -32,13 +33,16 @@ A modern, fully functional university website with comprehensive Google Analytic
 ├── about.html                      # About the university
 ├── programs.html                   # Academic programs
 ├── contact.html                    # Contact page
+├── store.html                      # University store page
+├── inventory.csv                   # Product inventory data
 ├── css/
 │   └── styles.css                  # Main stylesheet
 ├── js/
 │   ├── gtm-helper.js               # GTM utility functions
 │   ├── ga4-events.js               # GA4 custom event tracking
 │   ├── form-tracking.js            # Form interaction tracking
-│   └── dom-scraper.js              # DOM monitoring and scraping
+│   ├── dom-scraper.js              # DOM monitoring and scraping
+│   └── store.js                    # Store functionality
 ├── assets/                         # Images and media files
 ├── .github/
 │   └── copilot-instructions.md     # Project documentation
@@ -68,12 +72,11 @@ A modern, fully functional university website with comprehensive Google Analytic
 - `contact_field_change`: User changes contact form field value
 - `form_structure_scraped`: Form structure analysis
 
-### Engagement Events
-- `cta_click`: Call-to-action button clicks
-- `navigation_click`: Navigation menu clicks
-- `scroll_depth_25`, `scroll_depth_50`, `scroll_depth_75`, `scroll_depth_90`: Scroll tracking
-- `generic_link_click`: All other link clicks
-- `feature_card_interaction`: Feature card clicks
+### Store Events
+- `store_page_view`: Store page visits
+- `store_filter`: Product filtering (category/search)
+- `add_to_cart`: Product added to cart
+- `store_search`: Product search queries
 - `program_learn_more`: Program information clicks
 - `button_click`: Generic button clicks
 
